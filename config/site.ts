@@ -1,12 +1,40 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
+  name: "Smart Platform",
   description:
     "Beautifully designed components built with Radix UI and Tailwind CSS.",
   mainNav: [
     {
-      title: "Home",
+      title: "Dashboard",
+      href: "/",
+    },
+    {
+      title: "Test Library",
+      href: "/",
+    },
+    {
+      title: "Test Battery",
+      href: "/",
+    },
+    {
+      title: "Database",
+      href: "/",
+    },
+    {
+      title: "Project",
+      href: "/",
+    },
+    {
+      title: "Credit History",
+      href: "/",
+    },
+    {
+      title: "Smart Interview",
+      href: "/",
+    },
+    {
+      title: "Settings",
       href: "/",
     },
   ],
