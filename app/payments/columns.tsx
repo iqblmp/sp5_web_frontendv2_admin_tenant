@@ -1,11 +1,9 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
+import { MoreHorizontal } from "lucide-react"
 
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,61 +23,51 @@ export type Payment = {
   status: "pending" | "processing" | "success" | "failed"
   email: string
 }
-
 export const columns: ColumnDef<Payment>[] = [
   {
     id: "index",
-    enableResizing: true,
-    maxSize: 10,
     header: "No.",
-    cell: ({ row }) => <div className="pl-2">{row.index + 1}.</div>,
+    cell: ({ row, table }) => (
+      <div className="text-center">
+        {(table
+          .getSortedRowModel()
+          ?.flatRows?.findIndex((flatRow) => flatRow.id === row.id) || 0) + 1}
+        .
+      </div>
+    ),
     enableSorting: false,
     enableHiding: false,
+    size: 5,
+    maxSize: 5,
   },
-  //   {
-  //     id: "select",
-  //     header: ({ table }) => (
-  //       <Checkbox
-  //         checked={
-  //           table.getIsAllPageRowsSelected() ||
-  //           (table.getIsSomePageRowsSelected() && "indeterminate")
-  //         }
-  //         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-  //         aria-label="Select all"
-  //       />
-  //     ),
-  //     cell: ({ row }) => (
-  //       <Checkbox
-  //         checked={row.getIsSelected()}
-  //         onCheckedChange={(value) => row.toggleSelected(!!value)}
-  //         aria-label="Select row"
-  //       />
-  //     ),
-  //     enableSorting: false,
-  //     enableHiding: false,
-  //   },
   {
     accessorKey: "status",
-    header: "Status",
+    header: ({ column }) => {
+      return <DataTableColumnHeader column={column} title="Amount" />
+    },
+    size: 350,
   },
   {
     accessorKey: "email",
+    filterFn: "includesString",
     header: ({ column }) => {
-      return (
-        <DataTableColumnHeader column={column} title="Email" />
-        // <Button
-        //   variant="ghost"
-        //   onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        // >
-        //   Email
-        //   <ArrowUpDown className="ml-2 h-4 w-4" />
-        // </Button>
-      )
+      return <DataTableColumnHeader column={column} title="Email" />
     },
+    size: 500,
   },
   {
     accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
+    size: 300,
+    filterFn: "inNumberRange",
+    header: ({ column }) => {
+      return (
+        <DataTableColumnHeader
+          column={column}
+          title="Amount"
+          className="justify-end -mr-3  "
+        />
+      )
+    },
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"))
       const formatted = new Intl.NumberFormat("en-US", {
@@ -92,10 +80,10 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     id: "actions",
+    size: 100,
     header: "Action",
     cell: ({ row }) => {
       const payment = row.original
-
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

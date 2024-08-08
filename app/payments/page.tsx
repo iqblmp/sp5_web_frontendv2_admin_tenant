@@ -1,3 +1,5 @@
+import { SiteHeader } from "@/components/site-header"
+
 import { Payment, columns } from "./columns"
 import { DataTable } from "./data-table"
 
@@ -7,22 +9,6 @@ import { DataTable } from "./data-table"
 //   status: "pending" | "processing" | "success" | "failed"
 //   email: string
 // }
-
-// export const payments: Payment[] = [
-//   {
-//     id: "728ed52f",
-//     amount: 100,
-//     status: "pending",
-//     email: "m@example.com",
-//   },
-//   {
-//     id: "489e1d42",
-//     amount: 125,
-//     status: "processing",
-//     email: "example@gmail.com",
-//   },
-//   // ...
-// ]
 
 async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
@@ -243,7 +229,6 @@ async function getData(): Promise<Payment[]> {
       status: "failed",
       email: "carmella@hotmail.com",
     },
-    // ...
   ]
 }
 
@@ -251,8 +236,11 @@ export default async function DemoPage() {
   const data = await getData()
 
   return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
-    </div>
+    <>
+      <SiteHeader />
+      <div className="container mx-auto py-[2px]">
+        <DataTable columns={columns} data={data} />
+      </div>
+    </>
   )
 }

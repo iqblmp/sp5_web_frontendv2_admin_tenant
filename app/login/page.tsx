@@ -3,7 +3,6 @@
 import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { CheckCircledIcon } from "@radix-ui/react-icons"
 import axios from "axios"
 import { setCookie } from "cookies-next"
 import { jwtDecode } from "jwt-decode"

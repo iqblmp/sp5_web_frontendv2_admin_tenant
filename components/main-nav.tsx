@@ -1,17 +1,11 @@
 import * as React from "react"
 import Link from "next/link"
 import {
-  Cloud,
-  CreditCard,
-  Github,
-  Keyboard,
-  LifeBuoy,
   LogOut,
   Mail,
   Menu,
   MessageSquare,
   MonitorSmartphone,
-  Plus,
   PlusCircle,
   Search,
   Settings,
@@ -51,15 +45,15 @@ export function MainNav({ items }: MainNavProps) {
         {" "}
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
           <Link
-            href="#"
-            className="flex items-center gap-2 text-lg font-semibold md:text-base"
+            href="/payments"
+            className="flex text-background items-center gap-2 text-lg font-semibold md:text-base"
           >
             <MonitorSmartphone className="h-6 w-6" />
             <span className="sr-only">Smart Platform</span>
           </Link>
           <Link
             href="/"
-            className="text-foreground transition-colors hover:text-foreground"
+            className="text-background transition-colors hover:text-foreground"
           >
             Dashboard
           </Link>
@@ -67,7 +61,7 @@ export function MainNav({ items }: MainNavProps) {
             <DropdownMenuTrigger asChild>
               <Link
                 href="#"
-                className="text-muted-foreground transition-colors hover:text-foreground "
+                className="text-background transition-colors hover:text-foreground "
               >
                 Library
               </Link>
@@ -75,13 +69,18 @@ export function MainNav({ items }: MainNavProps) {
             <DropdownMenuContent align="start">
               <DropdownMenuLabel>Test Library</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Test Description</DropdownMenuItem>
-              <DropdownMenuItem>Report Description</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/test">Test Description</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link href="/report">Report Description</Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <Link
-            href="/test_battery"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            href="/battery"
+            className="text-background transition-colors hover:text-foreground"
           >
             Battery
           </Link>
@@ -89,7 +88,7 @@ export function MainNav({ items }: MainNavProps) {
             <DropdownMenuTrigger asChild>
               <Link
                 href="#"
-                className="text-muted-foreground transition-colors hover:text-foreground "
+                className="text-background transition-colors hover:text-foreground "
               >
                 Database
               </Link>
@@ -97,21 +96,25 @@ export function MainNav({ items }: MainNavProps) {
             <DropdownMenuContent align="start">
               <DropdownMenuLabel>Database</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>individual</DropdownMenuItem>
-              <DropdownMenuItem>Group</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/individual">Individual</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/group">Group</Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <Link
-            href="/payments"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            href="/project"
+            className="text-background transition-colors hover:text-foreground"
           >
             Project
           </Link>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Link
-                href="#"
-                className="text-muted-foreground transition-colors hover:text-foreground "
+                href="/credits"
+                className="text-background transition-colors hover:text-foreground "
               >
                 Credit
               </Link>
@@ -128,7 +131,7 @@ export function MainNav({ items }: MainNavProps) {
             <DropdownMenuTrigger asChild>
               <Link
                 href="#"
-                className="text-muted-foreground transition-colors hover:text-foreground "
+                className="text-background transition-colors hover:text-foreground "
               >
                 Interview
               </Link>
@@ -136,15 +139,21 @@ export function MainNav({ items }: MainNavProps) {
             <DropdownMenuContent align="start">
               <DropdownMenuLabel>SMART Interview</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Introduction</DropdownMenuItem>
-              <DropdownMenuItem>Online Test Interview</DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link href="/introduction">Introduction</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link href="/online_test_interview">Online Test Interview</Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Link
                 href="#"
-                className="text-muted-foreground transition-colors hover:text-foreground "
+                className="text-background transition-colors hover:text-foreground "
               >
                 Settings
               </Link>
@@ -152,12 +161,30 @@ export function MainNav({ items }: MainNavProps) {
             <DropdownMenuContent align="start">
               <DropdownMenuLabel>Settings</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>User Profile</DropdownMenuItem>
-              <DropdownMenuItem>Company Profile</DropdownMenuItem>
-              <DropdownMenuItem>Welcome Page</DropdownMenuItem>
-              <DropdownMenuItem>Email Invitation</DropdownMenuItem>
-              <DropdownMenuItem>Embedded Video URL</DropdownMenuItem>
-              <DropdownMenuItem>Biodata Registration</DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link href="/user_profile">User Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link href="/company_profile">Company Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link href="/welcome_page">Welcome Page</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link href="/email_invitation">Email Invitation</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link href="/embedded_video_url">Embedded Video URL</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                {" "}
+                <Link href="/biodata_registration">Biodata Registration</Link>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
@@ -185,58 +212,55 @@ export function MainNav({ items }: MainNavProps) {
                 Dashboard
               </Link>
               <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
+                href="/battery"
+                className="text-background hover:text-foreground"
               >
-                Test
+                Battery
               </Link>
 
               <Link
                 href="/database"
-                className="text-muted-foreground hover:text-foreground"
+                className="text-background hover:text-foreground"
               >
                 Database
               </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
+              <Link href="#" className="text-background hover:text-foreground">
                 Project
               </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
+              <Link href="#" className="text-background hover:text-foreground">
                 Credit History
               </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
+              <Link href="#" className="text-background hover:text-foreground">
                 Smart Interview
               </Link>
             </nav>
           </SheetContent>
         </Sheet>
-        <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-          <form className="ml-auto flex-1  sm:flex-initial">
+        <div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">
+          {/* <form className="ml-auto flex-1  sm:flex-initial">
             <div className="relative ">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-2.5 top-3 h-4 w-4 text-white" />
               <Input
                 type="search"
                 placeholder="Search candidate..."
-                className="pl-8 sm:w-[300px] md:w-[200px] bg-transparent lg:w-[300px]"
+                className="pl-8 sm:w-[300px] md:w-[200px] bg-transparent focus-visible:ring-0  placeholder:text-white lg:w-[300px]"
               />
             </div>
-          </form>
+          </form> */}
+
+          <img src="/asi-logo-white.png" className="pl-5" width={250} />
           <nav className="flex items-center -mr-[2px]">
             <ThemeToggle />
           </nav>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="secondary" size="icon" className="rounded-full">
-                <Users className="h-5 w-5" />
+              <Button
+                variant="secondary"
+                size="icon"
+                className="min-w-10 rounded-full"
+              >
+                <Users className="h-5 w-5 " />
                 <span className="sr-only">Toggle user menu</span>
               </Button>
             </DropdownMenuTrigger>

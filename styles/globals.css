@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --primary: 0 0% 0%;
     --foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -19,7 +20,7 @@
     --card: 0 0% 100%;
     --card-foreground: 222.2 47.4% 11.2%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* --primary: 222.2 47.4% 11.2%; */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -43,6 +44,8 @@
 
   .dark {
     --background: 224 71% 4%;
+
+    --primary: 100% 100% 100%;
     --foreground: 213 31% 91%;
 
     --muted: 223 47% 11%;
@@ -60,7 +63,7 @@
     --card: 224 71% 4%;
     --card-foreground: 213 31% 91%;
 
-    --primary: 210 40% 98%;
+    /* --primary: 210 40% 98%; */
     --primary-foreground: 222.2 47.4% 1.2%;
 
     --secondary: 222.2 47.4% 11.2%;
@@ -145,4 +148,20 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+.input {
+  color: black;
+}
+.dark .input {
+  color: white;
+}
+.rdtPicker {
+  right: 0;
+}
+.input {
+  border-radius: calc(var(--radius) - 2px);
+  -webkit-border-radius: calc(var(--radius) - 2px);
+  -moz-border-radius: calc(var(--radius) - 2px);
+  -ms-border-radius: calc(var(--radius) - 2px);
+  -o-border-radius: calc(var(--radius) - 2px);
 }

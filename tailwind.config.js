@@ -1,7 +1,31 @@
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
 /** @type {import('tailwindcss').Config} */
+// /** @type {import('rippleui').Config} */
 module.exports = {
+  rippleui: {
+    removeThemes: [""],
+    themes: [
+      {
+        themeName: "light",
+        colorScheme: "light",
+        colors: {
+          warning: "#ea580c",
+          success: "#059669",
+          error: "#e9002c",
+        },
+      },
+      {
+        themeName: "dark",
+        colorScheme: "dark",
+        colors: {
+          warning: "#ea580c",
+          success: "#059669",
+          error: "#e9002c",
+        },
+      },
+    ],
+  },
   darkMode: ["class"],
   content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
   theme: {
@@ -72,5 +96,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("rippleui")],
 }
