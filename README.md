@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # sp5_web_frontendv2_admin_tenant
-=======
-# next-template
 
 A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
 
@@ -23,4 +20,3 @@ npx create-next-app -e https://github.com/shadcn/next-template
 ## License
 
 Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
->>>>>>> 2b79c2961046eef81f21f30016cd6cc028891f69
