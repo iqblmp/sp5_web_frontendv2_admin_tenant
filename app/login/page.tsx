@@ -181,7 +181,11 @@ const LoginPage: React.FC = () => {
               />
             </CardContent>
             <CardFooter className="flex flex-col">
-              <Button type="submit" className="w-full">
+              <Button
+                // variant="default"
+                type="submit"
+                className="w-full bg-foreground "
+              >
                 Login
               </Button>
               <div className="mt-4 text-center text-xs">

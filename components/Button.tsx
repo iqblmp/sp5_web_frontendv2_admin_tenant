@@ -25,11 +25,11 @@ const Button = ({
   switch (colorStyle) {
     case "default":
       colorMapping = {
-        primary: "btn-primary",
-        secondary: "btn-secondary",
-        success: "btn-success",
-        error: "btn-error",
-        warning: "btn-warning",
+        primary: "btn-primary text-secondary",
+        secondary: "btn-secondary text-secondary",
+        success: "btn-success text-secondary",
+        error: "btn-error text-secondary",
+        warning: "btn-warning text-secondary",
       }
       break
     case "outline":
@@ -37,7 +37,7 @@ const Button = ({
         primary: "btn-outline-primary",
         secondary: "btn-outline-secondary",
         success: "btn-outline-success",
-        error: "btn-outline-error",
+        error: "btn-outline-error text-error",
         warning: "btn-outline-warning",
       }
       break
@@ -83,9 +83,7 @@ const Button = ({
       {children || (
         <label
           htmlFor={htmlFor}
-          className={
-            "cursor-pointer flex gap-x-2  justify-center text-secondary items-center"
-          }
+          className={"cursor-pointer flex gap-x-2  justify-center items-center"}
         >
           {icon && (
             <span className="flex justify-center items-center ">
